@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jason Reed Homepage</title>
+</head>
+<body bgcolor="grey">
+    {% load staticfiles %}
+    <img src="{% static "guestbook/profile.jpg" %}" alt="Jason Reed" style="display: block;margin-left: auto;margin-right: auto" />
+    <br />
+    <p style="text-align: center">Jason Reed<br>
+    205 E. 12th Street,<br>
+    Rolla, MO 65401<br>
+    573-202-0890 (C)</p>
+    <br />
+    <h2>Sign My Guestbook</h2>
+    <form method="POST" action="{% url 'guestbook:sign' %}">
+        {% csrf_token %}   
+        First Name: <input type="text" name="firstname"><br /><br />
+        Last Name: <input type="text" name="lastname"><br />
+        <input type="submit" value="Sign" />
+    </form>
+{% if signed_val %}
+    <a href="{% url 'guestbook:view' %}">View the Guestbook</a>
+{% endif %}
+</body>
+</html>

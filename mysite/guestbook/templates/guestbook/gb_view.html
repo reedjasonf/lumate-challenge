@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Jason Reed's Guestbook</title>
+</head>
+<body bgcolor="grey">
+<a href="{% url "guestbook:index" %}">Home</a><br>
+<h2 style="text-align: center">Guestbook</h2>
+
+{% if sig_list %}
+    <ul>Entries<hr />
+    {% for signature in sig_list %}
+        <li>{{ signature.first_name }} {{ signature.last_name }}</li>
+        <p> - signed: {{ signature.sign_date }}</p>
+    {% endfor %}
+{% else %}
+    <p>No signatures yet in the guestbook.</p>
+{% endif %}
+
+</body>
+</html>
