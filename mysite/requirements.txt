@@ -1,0 +1,7 @@
+This django project requires the following packages on ubuntu:
+
+1. Django
+2. Python
+3. PostgreSQL
+4. Git (if wanting to version changes)
+5. psycopg2
