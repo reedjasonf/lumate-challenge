@@ -12,7 +12,7 @@ def index(request, signed_val):
     return render(request, 'guestbook/index.html', context)
 
 def sign(request):
-    s = Signature(first_name=request.POST['firstname'], last_name=request.POST['lastname'], sign_date=timezone.now())
+    s = Signature(first_name=request.POST['firstname'], last_name=request.POST['lastname'], sign_date=timezone.now(), ip=request.META.get('REMOTE_ADDR'))
     s.save()
     return HttpResponseRedirect(reverse('guestbook:signed_guestbook', kwargs={'signed_val': True}))
 

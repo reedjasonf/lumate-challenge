@@ -11,7 +11,7 @@
     <ul>Entries<hr />
     {% for signature in sig_list %}
         <li>{{ signature.first_name }} {{ signature.last_name }}</li>
-        <p> - signed: {{ signature.sign_date }}</p>
+        <p> - signed: {{ signature.sign_date }} - from IP Address: {{ signature.ip }}</p>
     {% endfor %}
 {% else %}
     <p>No signatures yet in the guestbook.</p>
